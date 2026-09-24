@@ -10,7 +10,7 @@ export const BluetoLogo: React.FC<{ light?: boolean }> = ({ light = false }) => 
       alt="Blueto Tech"
       width={250}
       height={56}
-      className="h-11 w-auto lg:h-12"
+      className="h-10 w-auto sm:h-11 lg:h-12"
     />
   </Link>
 );

@@ -19,16 +19,16 @@ const fields: Field[] = [
 ];
 
 const Contact: React.FC = () => (
-  <section id="contact" className="py-20 lg:py-28">
-    <div className="container-page grid gap-14 lg:grid-cols-[1fr_1.3fr]">
+  <section id="contact" className="py-14 sm:py-20 lg:py-28">
+    <div className="container-page grid gap-10 sm:gap-14 lg:grid-cols-[1fr_1.3fr]">
       <Reveal>
         <span className="eyebrow">Contact</span>
         <h2 className="heading-lg mt-4">Talk to a person.</h2>
-        <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-soft">
+        <p className="mt-6 max-w-md text-base leading-relaxed sm:text-lg text-ink-soft">
           Messages reach the team directly — not a ticketing system. We aim to reply the same day.
         </p>
 
-        <ul className="mt-10 space-y-5">
+        <ul className="mt-8 space-y-4 sm:mt-10 sm:space-y-5">
           <li>
             <a href={`tel:${company.phoneTel}`} className="group flex items-center gap-4">
               <span className="grid h-11 w-11 place-items-center rounded-xl bg-sand text-ink">
@@ -65,7 +65,7 @@ const Contact: React.FC = () => (
         </ul>
       </Reveal>
 
-      <Reveal delay={120} className="rounded-3xl border border-line bg-white p-6 sm:p-9">
+      <Reveal delay={120} className="rounded-3xl border border-line bg-white p-5 sm:p-9">
         <EnquiryForm
           fields={fields}
           subject="Enquiry from the Blueto Tech website"

@@ -20,18 +20,22 @@ const HeroPhoto = ({ alt, sticker, delay = 200 }: Props) => (
     </div>
 
     <div
-      className="absolute -left-3 bottom-10 animate-float rounded-2xl bg-white px-4 py-3 shadow-lg sm:-left-10 sm:bottom-auto sm:top-8"
+      className="absolute -left-3 bottom-10 animate-float rounded-2xl bg-white px-3 py-2 shadow-lg sm:px-4 sm:py-3 sm:-left-10 sm:bottom-auto sm:top-8"
       style={{ ['--r' as string]: '-6deg' }}
     >
-      <div className="font-display text-3xl font-extrabold leading-none text-accent">90</div>
-      <div className="text-xs font-bold uppercase tracking-wider text-ink-soft">minutes</div>
+      <div className="font-display text-2xl font-extrabold leading-none text-accent sm:text-3xl">
+        90
+      </div>
+      <div className="text-[10px] font-bold uppercase tracking-wider text-ink-soft sm:text-xs">
+        minutes
+      </div>
     </div>
 
     <div
-      className="absolute -bottom-5 -right-2 animate-float rounded-full bg-ink px-5 py-3 text-white shadow-lg xl:-right-8"
+      className="absolute -bottom-5 -right-2 animate-float rounded-full bg-ink px-4 py-2 text-white sm:px-5 sm:py-3 shadow-lg xl:-right-8"
       style={{ ['--r' as string]: '4deg', animationDelay: '1.2s' }}
     >
-      <span className="hand text-2xl">{sticker}</span>
+      <span className="hand text-xl sm:text-2xl">{sticker}</span>
     </div>
   </div>
 );

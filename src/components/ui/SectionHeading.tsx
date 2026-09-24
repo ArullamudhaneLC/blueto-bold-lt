@@ -24,7 +24,7 @@ const SectionHeading: React.FC<Props> = ({
     <h2 className={`heading-lg ${eyebrow ? 'mt-4' : ''}`}>{title}</h2>
     {intro && (
       <p
-        className={`mt-6 text-lg leading-relaxed ${tone === 'dark' ? 'text-ink-faint' : 'text-ink-soft'}`}
+        className={`mt-6 text-base leading-relaxed sm:text-lg ${tone === 'dark' ? 'text-ink-faint' : 'text-ink-soft'}`}
       >
         {intro}
       </p>

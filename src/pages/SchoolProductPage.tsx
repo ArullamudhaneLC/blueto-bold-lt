@@ -101,7 +101,7 @@ const SchoolProductPage = () => {
               BluEduVerse — see every student <span className="squiggle text-accent">whole</span>.
             </h1>
             <p
-              className="enter mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft"
+              className="enter mt-6 max-w-2xl text-base leading-relaxed sm:text-lg text-ink-soft"
               style={{ animationDelay: '180ms' }}
             >
               A school management system with an AI digital diary. Grades, attendance, health,
@@ -137,16 +137,16 @@ const SchoolProductPage = () => {
         </div>
       </section>
 
-      <section className="border-t border-line bg-white py-20 lg:py-28">
+      <section className="border-t border-line bg-white py-14 sm:py-20 lg:py-28">
         <div className="container-page">
           <SectionHeading
             eyebrow="What’s inside"
             title="Everything a class teacher tracks, in one place."
           />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:mt-12 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {modules.map(({ title, body, icon: Icon }, i) => (
               <Reveal key={title} delay={(i % 3) * 80}>
-                <div className="h-full rounded-3xl border border-line bg-paper p-7 transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_-20px_rgba(28,25,23,0.3)]">
+                <div className="h-full rounded-3xl border border-line bg-paper p-5 sm:p-7 transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_-20px_rgba(28,25,23,0.3)]">
                   <Icon className="h-6 w-6 text-accent" />
                   <h3 className="mt-5 font-bold">{title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-ink-soft">{body}</p>
@@ -157,7 +157,7 @@ const SchoolProductPage = () => {
         </div>
       </section>
 
-      <section className="bg-ink py-20 text-white lg:py-24">
+      <section className="bg-ink py-14 text-white sm:py-20 lg:py-24">
         <div className="container-page grid gap-10 lg:grid-cols-3">
           {audiences.map(({ icon: Icon, title, body }, i) => (
             <Reveal key={title} delay={i * 100}>
@@ -169,14 +169,14 @@ const SchoolProductPage = () => {
         </div>
       </section>
 
-      <section id="demo" className="py-20 lg:py-28">
+      <section id="demo" className="py-14 sm:py-20 lg:py-28">
         <div className="container-page grid gap-14 lg:grid-cols-[1fr_1.3fr]">
           <SectionHeading
             eyebrow="Book a demo"
             title="See it with your own school’s data."
             intro="We will walk you through BluEduVerse and talk about what your school needs. No commitment."
           />
-          <Reveal delay={120} className="rounded-3xl border border-line bg-white p-6 sm:p-9">
+          <Reveal delay={120} className="rounded-3xl border border-line bg-white p-5 sm:p-9">
             <EnquiryForm
               fields={fields}
               subject="BluEduVerse demo request"
