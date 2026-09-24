@@ -73,7 +73,7 @@ const bubbles = [
 // Step 5 of "How it works": the payoff for hosting, styled as an announcement.
 const PayoffCard = () => (
   <Reveal as="li" delay={320} className="sm:col-span-2 lg:col-span-4">
-    <div className="relative isolate grid items-center gap-8 overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-500 via-brand-600 to-brand-900 p-8 text-white shadow-[0_30px_60px_-30px_rgb(var(--brand-600)/0.8)] sm:p-10 lg:grid-cols-[1.2fr_1fr] lg:p-12">
+    <div className="relative isolate grid items-center gap-8 overflow-hidden rounded-3xl bg-gradient-to-br sm:rounded-[2rem] from-brand-500 via-brand-600 to-brand-900 p-6 sm:p-8 text-white shadow-[0_30px_60px_-30px_rgb(var(--brand-600)/0.8)] sm:p-10 lg:grid-cols-[1.2fr_1fr] lg:p-12">
       {/* Glow and dot texture */}
       <div
         className="absolute -right-20 -top-24 -z-10 h-80 w-80 rounded-full bg-white/20 blur-3xl"
@@ -93,15 +93,17 @@ const PayoffCard = () => (
           <span className="grid h-9 w-9 place-items-center rounded-full bg-white text-sm font-extrabold text-brand-700">
             5
           </span>
-          <span className="hand text-2xl text-white/90">and the best bit…</span>
+          <span className="hand text-xl sm:text-2xl text-white/90">and the best bit…</span>
         </div>
-        <h3 className="mt-5 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
+        <h3 className="mt-4 font-display text-3xl font-extrabold tracking-tight sm:mt-5 sm:text-5xl">
           {payoffStep.title}
         </h3>
-        <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/85">{payoffStep.body}</p>
+        <p className="mt-4 max-w-xl text-base leading-relaxed sm:text-lg text-white/85">
+          {payoffStep.body}
+        </p>
       </div>
 
-      <div className="relative mx-auto h-56 w-full max-w-sm sm:h-64">
+      <div className="relative mx-auto h-48 w-full max-w-sm sm:h-64">
         <div className="absolute inset-x-8 inset-y-6">
           <Megaphone />
         </div>

@@ -32,16 +32,16 @@ const products = [
 ];
 
 const Products: React.FC = () => (
-  <section id="products" className="py-20 lg:py-28">
+  <section id="products" className="py-14 sm:py-20 lg:py-28">
     <div className="container-page">
       <SectionHeading eyebrow="Products" title="Software we build and run ourselves." />
 
-      <div className="mt-12 grid gap-5 lg:grid-cols-2">
+      <div className="mt-8 grid gap-4 sm:mt-12 sm:gap-5 lg:grid-cols-2">
         {products.map((p, i) => (
           <Reveal key={p.name} delay={i * 120}>
             <Link
               to={p.to}
-              className={`group flex h-full flex-col rounded-3xl border p-8 transition hover:-translate-y-0.5 hover:shadow-[0_20px_40px_-24px_rgba(28,25,23,0.3)] ${
+              className={`group flex h-full flex-col rounded-3xl border p-6 sm:p-8 transition hover:-translate-y-0.5 hover:shadow-[0_20px_40px_-24px_rgba(28,25,23,0.3)] ${
                 p.featured ? 'border-brand-200 bg-brand-50' : 'border-line bg-white'
               }`}
             >

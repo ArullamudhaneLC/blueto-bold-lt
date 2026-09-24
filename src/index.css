@@ -139,7 +139,7 @@
 
 @layer components {
   .container-page {
-    @apply max-w-page mx-auto px-5 sm:px-8;
+    @apply max-w-page mx-auto px-4 sm:px-8;
   }
 
   .eyebrow {
@@ -151,11 +151,11 @@
   }
 
   .heading-xl {
-    @apply font-display text-[3.1rem] sm:text-7xl lg:text-[5.5rem] font-extrabold leading-[0.95] tracking-[-0.035em];
+    @apply font-display text-[2.5rem] sm:text-6xl lg:text-[5.5rem] font-extrabold leading-[0.98] tracking-[-0.035em];
   }
 
   .heading-lg {
-    @apply font-display text-[2.1rem] sm:text-5xl font-extrabold leading-[1.02] tracking-[-0.03em];
+    @apply font-display text-[1.75rem] sm:text-4xl lg:text-5xl font-extrabold leading-[1.05] tracking-[-0.03em];
   }
 
   /* Hand-drawn underline, as on the posters. */
@@ -172,15 +172,15 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-brand-600 px-7 py-3.5 text-[15px] font-bold text-white shadow-[0_8px_20px_-8px_rgb(var(--brand-600)/0.6)] transition hover:-translate-y-0.5 hover:bg-brand-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-brand-600 px-6 py-3 text-sm sm:px-7 sm:py-3.5 sm:text-[15px] font-bold text-white shadow-[0_8px_20px_-8px_rgb(var(--brand-600)/0.6)] transition hover:-translate-y-0.5 hover:bg-brand-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
   }
 
   .btn-dark {
-    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-ink px-7 py-3.5 text-[15px] font-bold text-white transition hover:-translate-y-0.5 hover:bg-ink-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-ink px-6 py-3 text-sm sm:px-7 sm:py-3.5 sm:text-[15px] font-bold text-white transition hover:-translate-y-0.5 hover:bg-ink-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full border-2 border-ink px-7 py-3 text-[15px] font-bold text-ink transition hover:bg-ink hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full border-2 border-ink px-6 py-2.5 text-sm sm:px-7 sm:py-3 sm:text-[15px] font-bold text-ink transition hover:bg-ink hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
   }
 
   .field {

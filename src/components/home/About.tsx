@@ -33,12 +33,12 @@ const About: React.FC = () => {
   ].filter((f) => f.value);
 
   return (
-    <section id="about" className="border-y border-line bg-sand/60 py-20 lg:py-28">
-      <div className="container-page grid gap-16 lg:grid-cols-[1.2fr_1fr]">
+    <section id="about" className="border-y border-line bg-sand/60 py-14 sm:py-20 lg:py-28">
+      <div className="container-page grid gap-10 sm:gap-16 lg:grid-cols-[1.2fr_1fr]">
         <Reveal>
           <span className="eyebrow">About</span>
           <h2 className="heading-lg mt-4">Small, early, and deliberately so.</h2>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
+          <p className="mt-6 max-w-xl text-base leading-relaxed sm:text-lg text-ink-soft">
             {company.brand} is a software company from {company.state}. We build products for local
             businesses and the people around them — and FlipRoles is where our attention is right
             now.
@@ -47,7 +47,7 @@ const About: React.FC = () => {
           {company.founder.name && (
             <figure className="mt-10 max-w-xl border-l-2 border-brand-600 pl-6">
               {company.founder.note && (
-                <blockquote className="text-xl font-semibold leading-relaxed tracking-tight text-ink">
+                <blockquote className="text-lg font-semibold leading-relaxed tracking-tight text-ink sm:text-xl">
                   “{company.founder.note}”
                 </blockquote>
               )}
@@ -69,7 +69,7 @@ const About: React.FC = () => {
             </figure>
           )}
 
-          <div className="mt-12 space-y-8">
+          <div className="mt-8 space-y-6 sm:mt-12 sm:space-y-8">
             {principles.map(({ icon: Icon, title, body }) => (
               <div key={title} className="flex gap-5">
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white text-brand-600 shadow-sm">

@@ -29,11 +29,11 @@ const SeekerSignup: React.FC = () => (
       className="pointer-events-none absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-brand-500 blur-3xl"
       aria-hidden
     />
-    <div className="container-page relative grid items-center gap-12 lg:grid-cols-[1fr_1.2fr]">
+    <div className="container-page relative grid items-center gap-8 sm:gap-12 lg:grid-cols-[1fr_1.2fr]">
       <Reveal>
-        <p className="hand text-3xl text-brand-100">psst — slots are opening soon</p>
+        <p className="hand text-2xl sm:text-3xl text-brand-100">psst — slots are opening soon</p>
         <h2 className="heading-lg mt-3">Be first in line.</h2>
-        <p className="mt-6 max-w-md text-lg leading-relaxed text-brand-50">
+        <p className="mt-6 max-w-md text-base leading-relaxed sm:text-lg text-brand-50">
           We’re signing up the first shops in {fliproles.city} right now. Leave your number and
           we’ll tell you the moment there’s a slot you’d love.
         </p>
