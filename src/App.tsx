@@ -1,18 +1,27 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import Layout from './components/layout/Layout';
 import HomePage from './pages/HomePage';
-import HMSProductPage from './pages/HMSProductPage';
-import SchoolProductPage from './pages/SchoolProductPage';
+
+// Secondary pages are code-split so the home page loads as little as possible.
+const FlipRolesPage = lazy(() => import('./pages/FlipRolesPage'));
+const SchoolProductPage = lazy(() => import('./pages/SchoolProductPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function App() {
   return (
-    <div className="min-h-screen">
+    <Suspense fallback={<div className="min-h-screen" />}>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/products/hms" element={<HMSProductPage />} />
-        <Route path="/products/school-management" element={<SchoolProductPage />} />
+        <Route element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="fliproles" element={<FlipRolesPage />} />
+          <Route path="products/school-management" element={<SchoolProductPage />} />
+          {/* The retired hospital product's old URL. */}
+          <Route path="products/hms" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
       </Routes>
-    </div>
+    </Suspense>
   );
 }
 

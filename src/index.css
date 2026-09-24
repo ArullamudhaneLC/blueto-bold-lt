@@ -1,3 +1,184 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*
+  Colour themes. Pick one with <html data-theme="…"> in index.html.
+  "clay" is the original FlipRoles terracotta look and the default — to revert, remove data-theme.
+  Values are RGB triplets so Tailwind opacity modifiers (bg-brand-600/20) keep working.
+*/
+:root,
+[data-theme='clay'] {
+  --brand-50: 253 245 242;
+  --brand-100: 250 232 225;
+  --brand-200: 245 208 194;
+  --brand-300: 237 174 152;
+  --brand-400: 226 130 95;
+  --brand-500: 212 96 59;
+  --brand-600: 180 73 31;
+  --brand-700: 150 60 28;
+  --brand-800: 123 52 28;
+  --brand-900: 102 47 27;
+  --accent: 180 73 31;
+  --accent-soft: 226 130 95;
+}
+
+/* Forest: deep green primary with the FlipRoles terracotta kept as the accent. */
+[data-theme='forest'] {
+  --brand-50: 243 248 245;
+  --brand-100: 227 239 231;
+  --brand-200: 191 216 201;
+  --brand-300: 134 179 154;
+  --brand-400: 140 192 160;
+  --brand-500: 46 106 75;
+  --brand-600: 31 77 54;
+  --brand-700: 24 61 43;
+  --brand-800: 19 48 34;
+  --brand-900: 15 39 28;
+  --accent: 180 73 31;
+  --accent-soft: 226 130 95;
+}
+
+/* Blue: deep navy primary (a nod to Blueto) with the FlipRoles terracotta as the accent. */
+[data-theme='blue'] {
+  --brand-50: 242 246 252;
+  --brand-100: 225 234 248;
+  --brand-200: 195 212 240;
+  --brand-300: 147 176 226;
+  --brand-400: 143 176 234;
+  --brand-500: 47 91 184;
+  --brand-600: 31 63 134;
+  --brand-700: 25 51 109;
+  --brand-800: 21 42 89;
+  --brand-900: 17 31 66;
+  --accent: 180 73 31;
+  --accent-soft: 226 130 95;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  ::selection {
+    @apply bg-brand-100 text-ink;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    .animate-marquee,
+    .animate-float,
+    .enter {
+      animation: none !important;
+    }
+    .reveal {
+      transform: none !important;
+      transition: opacity 0.3s ease !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Scroll reveal — toggled by <Reveal>. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* One-time entrance on page load (hero). Stagger with inline animation-delay. */
+  .enter {
+    animation: enter 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  @keyframes enter {
+    from {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply max-w-page mx-auto px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-accent;
+  }
+
+  .hand {
+    @apply font-hand font-semibold;
+  }
+
+  .heading-xl {
+    @apply font-display text-[3.1rem] sm:text-7xl lg:text-[5.5rem] font-extrabold leading-[0.95] tracking-[-0.035em];
+  }
+
+  .heading-lg {
+    @apply font-display text-[2.1rem] sm:text-5xl font-extrabold leading-[1.02] tracking-[-0.03em];
+  }
+
+  /* Hand-drawn underline, as on the posters. */
+  .squiggle {
+    @apply relative inline-block whitespace-nowrap;
+  }
+  .squiggle::after {
+    content: '';
+    @apply absolute -bottom-2 left-0 h-3 w-full bg-accent;
+    /* Masked so the stroke follows the theme's accent colour. */
+    -webkit-mask: var(--squiggle) no-repeat center / 100% 100%;
+    mask: var(--squiggle) no-repeat center / 100% 100%;
+    --squiggle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8 C 40 2, 80 2, 120 6 S 180 10, 198 4' fill='none' stroke='black' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-600 px-7 py-3.5 text-[15px] font-bold text-white shadow-[0_8px_20px_-8px_rgb(var(--brand-600)/0.6)] transition hover:-translate-y-0.5 hover:bg-brand-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
+  }
+
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-[15px] font-bold text-white transition hover:-translate-y-0.5 hover:bg-ink-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink px-7 py-3 text-[15px] font-bold text-ink transition hover:bg-ink hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-line bg-white px-4 py-3 text-[15px] text-ink placeholder-ink-mute transition focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100;
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-sm font-semibold text-ink;
+  }
+}

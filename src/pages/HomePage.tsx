@@ -1,35 +1,24 @@
-import React, { useEffect } from 'react';
-import Header from '../components/Header';
-import Hero from '../components/Hero';
-import About from '../components/About';
-import Products from '../components/Products';
-import Services from '../components/Services';
-import Contact from '../components/Contact';
-import Footer from '../components/Footer';
+import Hero from '../components/home/Hero';
+import RoleMarquee from '../components/home/RoleMarquee';
+import FlipRolesSpotlight from '../components/home/FlipRolesSpotlight';
+import SeekerSignup from '../components/home/SeekerSignup';
+import About from '../components/home/About';
+import Products from '../components/home/Products';
+import Contact from '../components/home/Contact';
+import { usePageMeta } from '../hooks/usePageMeta';
 
-const HomePage: React.FC = () => {
-  useEffect(() => {
-    // Restore scroll position when returning from product pages
-    const savedScrollPosition = sessionStorage.getItem('homeScrollPosition');
-    if (savedScrollPosition) {
-      // Use setTimeout to ensure the page is fully rendered before scrolling
-      setTimeout(() => {
-        window.scrollTo(0, parseInt(savedScrollPosition, 10));
-        // Clear the saved position after restoring
-        sessionStorage.removeItem('homeScrollPosition');
-      }, 100);
-    }
-  }, []);
+const HomePage = () => {
+  usePageMeta();
 
   return (
     <>
-      <Header />
       <Hero />
+      <RoleMarquee />
+      <FlipRolesSpotlight />
+      <SeekerSignup />
       <About />
       <Products />
-      <Services />
       <Contact />
-      <Footer />
     </>
   );
 };
