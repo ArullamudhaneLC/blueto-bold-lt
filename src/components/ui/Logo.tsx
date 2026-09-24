@@ -1,30 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Official Split B lockup from marketing/logo — the brand rules forbid redrawing or re-spacing it.
+// The artwork carries its own clear space, so the negative margin aligns it with the page edge.
 export const BluetoLogo: React.FC<{ light?: boolean }> = ({ light = false }) => (
-  <Link to="/" className="inline-flex items-center gap-2.5" aria-label="Blueto Tech home">
-    <span
-      className={`relative grid h-9 w-9 place-items-center rounded-xl font-display text-xl ${
-        light ? 'bg-paper text-ink' : 'bg-ink text-paper'
-      }`}
-    >
-      B
-      <span className="absolute bottom-1.5 right-1.5 h-1.5 w-1.5 rounded-full bg-brand-600" />
-    </span>
-    <span className="leading-none">
-      <span
-        className={`block font-display text-lg font-medium ${light ? 'text-paper' : 'text-ink'}`}
-      >
-        Blueto Tech
-      </span>
-      <span
-        className={`mt-1 block text-[10px] font-semibold uppercase tracking-[0.2em] ${
-          light ? 'text-ink-faint' : 'text-ink-soft'
-        }`}
-      >
-        Pvt Ltd
-      </span>
-    </span>
+  <Link to="/" className="-ml-[7px] inline-flex shrink-0" aria-label="Blueto Tech home">
+    <img
+      src={light ? '/brand/logo-dark.svg' : '/brand/logo.svg'}
+      alt="Blueto Tech"
+      width={250}
+      height={56}
+      className="h-11 w-auto lg:h-12"
+    />
   </Link>
 );
 

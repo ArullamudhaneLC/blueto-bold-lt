@@ -10,6 +10,7 @@ const shopPoints = [
   'You read every application and choose who comes',
   'Set a price if you like — we pay you after the tryout',
   'Every shop reviewed by hand, host agreement in writing',
+  'Visitors spread the word — your shop gets talked about',
 ];
 
 // Home-page FlipRoles story: role tiles, then the two sides of the counter.
@@ -53,7 +54,7 @@ const FlipRolesSpotlight: React.FC = () => (
     {/* Two sides of the counter */}
     <section id="fliproles" className="pb-20 lg:pb-28">
       <div className="container-page">
-        <SectionHeading eyebrow="How FlipRoles™ works" title="Two sides of the counter." />
+        <SectionHeading eyebrow="How FlipRoles works" title="Two sides of the counter." />
 
         <div className="mt-12 grid gap-5 lg:grid-cols-2">
           {/* Seekers */}

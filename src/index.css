@@ -3,10 +3,25 @@
 @tailwind utilities;
 
 /*
-  Colour themes. Pick one with <html data-theme="…"> in index.html.
-  "clay" is the original FlipRoles terracotta look and the default — to revert, remove data-theme.
-  Values are RGB triplets so Tailwind opacity modifiers (bg-brand-600/20) keep working.
+  Themes. Pick one with <html data-theme="…"> in index.html; values are RGB triplets so
+  Tailwind opacity modifiers (bg-brand-600/20) keep working.
+
+  - clay (default): the FlipRoles terracotta look, everywhere.
+  - blueto: the Blueto Tech brand kit (marketing/brand-guidelines.pdf) — navy, Signal Blue, Sora.
+    FlipRoles keeps its identity through its own logo, not through colour blocks.
 */
+:root,
+[data-theme='clay'] {
+  --ink: 28 25 23;
+  --ink-soft: 87 83 78;
+  --ink-mute: 120 113 108;
+  --ink-faint: 168 162 158;
+  --paper: 251 247 241;
+  --sand: 244 234 221;
+  --line: 231 229 228;
+  --font-display: 'Plus Jakarta Sans';
+}
+
 :root,
 [data-theme='clay'] {
   --brand-50: 253 245 242;
@@ -23,36 +38,28 @@
   --accent-soft: 226 130 95;
 }
 
-/* Forest: deep green primary with the FlipRoles terracotta kept as the accent. */
-[data-theme='forest'] {
-  --brand-50: 243 248 245;
-  --brand-100: 227 239 231;
-  --brand-200: 191 216 201;
-  --brand-300: 134 179 154;
-  --brand-400: 140 192 160;
-  --brand-500: 46 106 75;
-  --brand-600: 31 77 54;
-  --brand-700: 24 61 43;
-  --brand-800: 19 48 34;
-  --brand-900: 15 39 28;
-  --accent: 180 73 31;
-  --accent-soft: 226 130 95;
-}
-
-/* Blue: deep navy primary (a nod to Blueto) with the FlipRoles terracotta as the accent. */
-[data-theme='blue'] {
-  --brand-50: 242 246 252;
-  --brand-100: 225 234 248;
-  --brand-200: 195 212 240;
-  --brand-300: 147 176 226;
-  --brand-400: 143 176 234;
-  --brand-500: 47 91 184;
-  --brand-600: 31 63 134;
-  --brand-700: 25 51 109;
-  --brand-800: 21 42 89;
-  --brand-900: 17 31 66;
-  --accent: 180 73 31;
-  --accent-soft: 226 130 95;
+/* Blueto brand kit. Buttons use #2563EB (Signal Blue is too light for white 15px text). */
+[data-theme='blueto'] {
+  --ink: 10 26 51; /* Navy */
+  --ink-soft: 74 90 115; /* Slate */
+  --ink-mute: 90 105 128;
+  --ink-faint: 147 161 184;
+  --paper: 245 248 252; /* Cloud */
+  --sand: 227 235 247; /* Ice */
+  --line: 221 229 240;
+  --brand-50: 239 245 255;
+  --brand-100: 222 234 255;
+  --brand-200: 191 213 255;
+  --brand-300: 143 180 255;
+  --brand-400: 125 170 255;
+  --brand-500: 47 123 255; /* Signal Blue */
+  --brand-600: 37 99 235;
+  --brand-700: 29 78 216;
+  --brand-800: 30 64 175;
+  --brand-900: 23 43 110;
+  --accent: 37 99 235;
+  --accent-soft: 125 170 255;
+  --font-display: 'Sora';
 }
 
 @layer base {
@@ -88,6 +95,8 @@
     }
     .animate-marquee,
     .animate-float,
+    .animate-shout,
+    .animate-wave,
     .enter {
       animation: none !important;
     }
@@ -163,15 +172,15 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-600 px-7 py-3.5 text-[15px] font-bold text-white shadow-[0_8px_20px_-8px_rgb(var(--brand-600)/0.6)] transition hover:-translate-y-0.5 hover:bg-brand-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-brand-600 px-7 py-3.5 text-[15px] font-bold text-white shadow-[0_8px_20px_-8px_rgb(var(--brand-600)/0.6)] transition hover:-translate-y-0.5 hover:bg-brand-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
   }
 
   .btn-dark {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-[15px] font-bold text-white transition hover:-translate-y-0.5 hover:bg-ink-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-ink px-7 py-3.5 text-[15px] font-bold text-white transition hover:-translate-y-0.5 hover:bg-ink-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink px-7 py-3 text-[15px] font-bold text-ink transition hover:bg-ink hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full border-2 border-ink px-7 py-3 text-[15px] font-bold text-ink transition hover:bg-ink hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
   }
 
   .field {

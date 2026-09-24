@@ -20,7 +20,11 @@ const fields: Field[] = [
 
 // Seekers can't book yet (the app isn't live), so collect interest honestly.
 const SeekerSignup: React.FC = () => (
-  <section id="try" className="relative overflow-hidden bg-brand-600 py-20 text-white lg:py-28">
+  <section
+    id="try"
+
+    className="relative overflow-hidden bg-brand-600 py-20 text-white lg:py-28"
+  >
     <div
       className="pointer-events-none absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-brand-500 blur-3xl"
       aria-hidden

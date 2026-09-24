@@ -1,13 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, BadgeCheck, ShieldCheck, Sparkles, Store } from 'lucide-react';
+import HeroPhoto from '../fliproles/HeroPhoto';
+import { FlipRolesIcon } from '../ui/Logo';
 import { company, fliproles } from '../../config/company';
 
 // Staggered page-load entrance for hero elements.
 const enter = (ms: number) => ({ className: 'enter', style: { animationDelay: `${ms}ms` } });
 
 const Hero: React.FC = () => (
-  <section id="home" className="relative overflow-hidden pt-24 pb-16 lg:pt-32 lg:pb-24">
+  <section
+    id="home"
+
+    className="relative overflow-hidden pt-24 pb-16 lg:pt-32 lg:pb-24"
+  >
     {/* Soft brand glow */}
     <div
       className="pointer-events-none absolute -right-40 -top-40 -z-10 h-[36rem] w-[36rem] rounded-full bg-brand-100 blur-3xl"
@@ -17,7 +23,16 @@ const Hero: React.FC = () => (
     <div className="container-page grid items-center gap-14 lg:grid-cols-[1.1fr_1fr]">
       <div>
         <div {...enter(0)}>
-          <p className="hand text-2xl text-accent sm:text-3xl">
+          <Link
+            to="/fliproles"
+            className="group inline-flex items-center gap-2 rounded-full border border-line bg-white py-1 pl-1 pr-4 text-sm font-semibold shadow-sm transition hover:border-brand-300"
+          >
+            <FlipRolesIcon className="h-7 w-7" />
+            FlipRoles™
+            <span className="font-normal text-ink-mute">by {company.brand}</span>
+            <ArrowRight className="h-3.5 w-3.5 text-ink-mute transition group-hover:translate-x-0.5" />
+          </Link>
+          <p className="hand mt-6 text-2xl text-accent sm:text-3xl">
             made in {fliproles.city}, for the curious ✎
           </p>
         </div>
@@ -88,35 +103,10 @@ const Hero: React.FC = () => (
         </ul>
       </div>
 
-      {/* Photo with stickers */}
-      <div className="enter relative mx-auto w-full max-w-lg" style={{ animationDelay: '200ms' }}>
-        <div className="rotate-2 overflow-hidden rounded-[2rem] border-[6px] border-white shadow-[0_40px_80px_-40px_rgba(28,25,23,0.5)] transition duration-700 hover:rotate-0">
-          <img
-            src="/images/fliproles-cafe.jpg"
-            alt="A café owner says “Try my job for one day!” and a visitor replies “Okay! I’ll do it!”"
-            width={1600}
-            height={1280}
-            fetchPriority="high"
-            decoding="async"
-            className="aspect-[4/5] w-full object-cover object-[60%_center] sm:aspect-[5/5]"
-          />
-        </div>
-
-        <div
-          className="absolute -left-4 top-8 animate-float rounded-2xl bg-white px-4 py-3 shadow-lg sm:-left-10"
-          style={{ ['--r' as string]: '-6deg' }}
-        >
-          <div className="text-3xl font-extrabold leading-none text-accent">90</div>
-          <div className="text-xs font-bold uppercase tracking-wider text-ink-soft">minutes</div>
-        </div>
-
-        <div
-          className="absolute -bottom-5 -right-2 animate-float rounded-full bg-ink px-5 py-3 text-white shadow-lg xl:-right-8"
-          style={{ ['--r' as string]: '4deg', animationDelay: '1.2s' }}
-        >
-          <span className="hand text-2xl">no CV needed!</span>
-        </div>
-      </div>
+      <HeroPhoto
+        alt="A café owner guides a smiling visitor as she pours her first latte"
+        sticker="no CV needed!"
+      />
     </div>
   </section>
 );

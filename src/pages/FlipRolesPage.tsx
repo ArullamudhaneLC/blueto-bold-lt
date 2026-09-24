@@ -1,5 +1,8 @@
 import { ArrowRight, ArrowUpRight, Check, ChevronDown, Mail, Phone } from 'lucide-react';
+import PayoffCard from '../components/fliproles/PayoffCard';
 import EnquiryForm, { type Field } from '../components/ui/EnquiryForm';
+import HeroPhoto from '../components/fliproles/HeroPhoto';
+import Marquee from '../components/ui/Marquee';
 import { FlipRolesMark } from '../components/ui/Logo';
 import Reveal from '../components/ui/Reveal';
 import SectionHeading from '../components/ui/SectionHeading';
@@ -43,17 +46,20 @@ const FlipRolesPage = () => {
   );
 
   return (
-    <>
+    <div>
       {/* Hero */}
-      <section className="relative overflow-hidden pt-28 lg:pt-36">
+      <section className="relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28">
         <div
           className="pointer-events-none absolute -left-40 -top-40 -z-10 h-[32rem] w-[32rem] rounded-full bg-brand-100 blur-3xl"
           aria-hidden
         />
-        <div className="container-page grid items-end gap-12 lg:grid-cols-[1.1fr_1fr]">
-          <div className="pb-4 lg:pb-24">
+        <div className="container-page grid items-center gap-14 lg:grid-cols-[1.1fr_1fr]">
+          <div>
             <div className="enter">
-              <FlipRolesMark />
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                <FlipRolesMark />
+                <span className="text-sm text-ink-mute">a product of {company.legalName}</span>
+              </div>
               <p className="hand mt-8 text-2xl text-accent sm:text-3xl">for shop owners ✎</p>
             </div>
             <h1 className="heading-xl enter mt-3" style={{ animationDelay: '90ms' }}>
@@ -78,9 +84,6 @@ const FlipRolesPage = () => {
               <a href="#onboard" className="btn-primary">
                 List your shop <ArrowRight className="h-4 w-4" />
               </a>
-              <a href="#how" className="btn-secondary">
-                How it works
-              </a>
               {fliproles.appUrl && (
                 <a
                   href={fliproles.appUrl}
@@ -93,38 +96,22 @@ const FlipRolesPage = () => {
               )}
             </div>
           </div>
-          <div className="enter" style={{ animationDelay: '200ms' }}>
-            <img
-              src="/images/fliproles-cafe.jpg"
-              alt="A café owner inviting a visitor to try his job for a day"
-              width={1600}
-              height={1280}
-              fetchPriority="high"
-              decoding="async"
-              className="aspect-[4/3] w-full rounded-t-[2rem] object-cover lg:aspect-[4/5]"
-            />
-          </div>
+          <HeroPhoto
+            alt="A café owner guides a smiling visitor as she pours her first latte"
+            sticker="free to list!"
+          />
         </div>
       </section>
 
       {/* Shop types */}
-      <section className="border-y border-line bg-white py-8">
-        <div className="container-page flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-sm font-medium text-ink-soft">
-          <span className="text-ink-mute">Made for</span>
-          {shopTypes.map(({ label, icon: Icon }) => (
-            <span key={label} className="inline-flex items-center gap-2">
-              <Icon className="h-4 w-4 text-accent" /> {label}
-            </span>
-          ))}
-        </div>
-      </section>
+      <Marquee items={shopTypes.map((s) => s.label)} label="Shops FlipRoles is made for" />
 
       {/* How it works */}
       <section id="how" className="py-20 lg:py-28">
         <div className="container-page">
           <SectionHeading
             eyebrow="How it works"
-            title="Four steps, and you are in control of every one."
+            title="Four steps you control — and one that grows your business."
           />
           <ol className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, i) => (
@@ -138,6 +125,7 @@ const FlipRolesPage = () => {
                 </div>
               </Reveal>
             ))}
+            <PayoffCard />
           </ol>
         </div>
       </section>
@@ -263,7 +251,7 @@ const FlipRolesPage = () => {
           </Reveal>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

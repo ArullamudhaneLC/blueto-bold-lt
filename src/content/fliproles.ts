@@ -36,6 +36,13 @@ export const steps = [
   },
 ];
 
+// The payoff after the four steps — shown as a highlighted card. Kept to what we can stand
+// behind: word of mouth, and an occasional feature (see the "featured" benefit below).
+export const payoffStep = {
+  title: 'Let the word spread',
+  body: 'Every visitor leaves with a story about your shop — and tells it. New faces find you, your name travels, and we may feature your shop on FlipRoles’ own channels.',
+};
+
 // Seeker-side journey, as on the FlipRoles posters.
 export const seekerSteps = [
   { title: 'Browse roles', body: 'Real one-off tryouts at small shops near you.' },
